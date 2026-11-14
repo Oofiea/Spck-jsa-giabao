@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<!-- The page is in English -->
+<html lang="en">
+<!-- Information about the page. This part is not shown on the page -->
+<head>
+  <!-- Use the UTF-8 text format so all letters show correctly -->
+  <meta charset="UTF-8">
+  <!-- Make the page fit phone screens -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The title shown in the browser tab -->
+  <title>Reelhouse - Movies to watch</title>
+  <!-- Load the style file (colours, sizes and layout) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<!-- Everything you can see on the page goes inside the body -->
+<body>
+
+  <!-- Navigation bar at the top -->
+  <div class="navbar">
+    <!-- The logo. Clicking it goes to the home page -->
+    <a class="logo" href="index.html">Reelhouse</a>
+    <!-- The links in the navigation bar -->
+    <div class="nav-links">
+      <!-- Link to the home page -->
+      <a href="index.html">Home</a>
+      <!-- Link to the Now showing section on the home page -->
+      <a href="index.html#now-showing">Now showing</a>
+      <!-- Link to the genre buttons on the home page -->
+      <a href="index.html#genres">Genres</a>
+      <!-- Empty spot. home.js fills it with Log in / Create account or the user's name and Log out -->
+      <span id="auth-links"></span>
+    </div>
+  </div>
+
+  <!-- Big banner with the search box -->
+  <div class="hero">
+    <!-- Main heading -->
+    <h1>Find your next movie night</h1>
+    <!-- Short description -->
+    <p>Browse new releases, see the details of any film and keep a watchlist of everything you want to see.</p>
+    <!-- Search text box and button -->
+    <div class="search-box">
+      <!-- Search box. home.js reads the text from here -->
+      <input type="text" id="search-input" placeholder="Search for a movie title">
+      <!-- Search button. home.js starts the search when it is clicked -->
+      <button class="button" id="search-button" type="button">Search</button>
+    </div>
+  </div>
+
+  <!-- Search and genre results. Hidden until the user searches or clicks a genre -->
+  <div class="section hidden" id="results-section">
+    <!-- Heading of the results. home.js changes the text -->
+    <h2 id="results-title">Results</h2>
+    <p class="subtitle">Click a movie to see its details.</p>
+    <!-- The result cards are added here -->
+    <div class="movie-grid" id="results-grid"></div>
+  </div>
+
+  <!-- The user's saved movies. Hidden until the user is logged in and has saved movies -->
+  <div class="section hidden" id="watchlist-section">
+    <h2>My watchlist</h2>
+    <p class="subtitle">Movies you saved.</p>
+    <!-- The saved movie cards are added here -->
+    <div class="movie-grid" id="watchlist-grid"></div>
+  </div>
+
+  <!-- Movies that are in cinemas now. home.js adds the movie cards into the grid -->
+  <div class="section" id="now-showing">
+    <!-- Section heading -->
+    <h2>Now showing</h2>
+    <p class="subtitle">New releases in cinemas this week.</p>
+    <!-- The movie cards are added here -->
+    <div class="movie-grid" id="now-showing-grid">
+      <!-- Shown until the movies have loaded -->
+      <p>Loading...</p>
+    </div>
+  </div>
+
+  <!-- Trending movie of the week. home.js fills in the poster, title, genres, description and rating -->
+  <div class="dark-band">
+    <div class="section" id="featured">
+      <h2>Trending this week</h2>
+      <p class="subtitle">The movie everyone is talking about.</p>
+      <!-- Poster on the left, text on the right -->
+      <div class="featured">
+        <!-- The poster picture is added here -->
+        <div class="poster" id="featured-poster"></div>
+        <!-- The text next to the poster -->
+        <div class="featured-text">
+          <!-- Movie title -->
+          <h2 id="featured-title"></h2>
+          <!-- Genre tags and length -->
+          <div id="featured-tags"></div>
+          <!-- Movie description -->
+          <p id="featured-description"></p>
+          <br>
+          <!-- Movie rating -->
+          <p class="rating" id="featured-rating"></p>
+          <br>
+          <!-- Button that opens the details page of the trending movie -->
+          <a class="button" id="featured-link" href="#">View details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top rated movies -->
+  <div class="section" id="top-rated">
+    <h2>Top rated of all time</h2>
+    <p class="subtitle">The films with the highest scores.</p>
+    <!-- The movie cards are added here -->
+    <div class="movie-grid" id="top-rated-grid"></div>
+  </div>
+
+  <!-- Genre buttons. home.js makes one button for each genre -->
+  <div class="dark-band">
+    <div class="section" id="genres">
+      <h2>Browse by genre</h2>
+      <p class="subtitle">Pick a mood and start exploring.</p>
+      <!-- The genre buttons are added here -->
+      <div class="genre-list" id="genre-list"></div>
+    </div>
+  </div>
+
+  <!-- Movies that come out soon -->
+  <div class="section" id="upcoming">
+    <h2>Coming soon</h2>
+    <p class="subtitle">Movies that are about to be released.</p>
+    <!-- The movie cards are added here -->
+    <div class="movie-grid" id="upcoming-grid"></div>
+  </div>
+
+  <!-- Banner that asks visitors to register. home.js hides it when the user is logged in -->
+  <div class="hero" id="join-banner">
+    <h1>Join Reelhouse today</h1>
+    <p>Create a free account to build your own watchlist.</p>
+    <!-- Button that goes to the register page -->
+    <a class="button" href="register.html">Create a free account</a>
+  </div>
+
+  <!-- Chat widget (Chatbase) that you added to the page -->
+  <script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...argument)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="xJ4umO9BEk5ZvhjRWaqwC";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+
+  <!-- Footer with links -->
+  <div class="footer">
+    <!-- The columns in the footer -->
+    <div class="footer-columns">
+      <div>
+        <!-- First column: about the site -->
+        <h3>Reelhouse</h3>
+        <p>Your home for movies<br>and watchlists.</p>
+      </div>
+      <div>
+        <!-- Second column: links to sections of this page -->
+        <h3>Explore</h3>
+        <a href="#now-showing">Now showing</a>
+        <a href="#top-rated">Top rated</a>
+        <a href="#genres">Genres</a>
+      </div>
+      <div>
+        <!-- Third column: login and register links -->
+        <h3>Account</h3>
+        <a href="login.html">Log in</a>
+        <a href="register.html">Create account</a>
+      </div>
+    </div>
+    <!-- Copyright line -->
+    <div class="copyright">&copy; 2026 Reelhouse. Movie data from TMDB.</div>
+  </div>
+
+  <!-- The script for this page. It must come last so the page is ready before it runs -->
+  <script src="home.js"></script>
+</body>
+</html>

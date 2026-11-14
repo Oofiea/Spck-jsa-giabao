@@ -1,0 +1,307 @@
+/* ===== Basics ===== */
+
+/* Remove the default spacing of every element and make sizes easier to calculate */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Page background, text colour and font */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #14172b;
+  color: #f3efe6;
+  line-height: 1.6;
+}
+
+/* Links are gold and only get an underline when hovered */
+a { color: #f2b134; text-decoration: none; }
+a:hover { text-decoration: underline; }
+/* Headings use a serif font */
+h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; }
+/* Anything with this class is not shown (JavaScript removes it to show the item) */
+.hidden { display: none; }
+
+/* ===== Navigation bar ===== */
+
+/* Top bar with the logo on the left and the links on the right */
+.navbar {
+  background-color: #0d1020;
+  padding: 16px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid #f2b134;
+}
+/* The Reelhouse logo text */
+.logo { font-family: Georgia, serif; font-size: 28px; color: #f2b134; font-weight: bold; }
+/* No underline on the logo */
+.logo:hover { text-decoration: none; }
+/* The group of links in the navigation bar */
+.nav-links { display: flex; align-items: center; flex-wrap: wrap; }
+/* Links in the bar are light with space on their left */
+.nav-links a { color: #f3efe6; margin-left: 24px; font-size: 16px; }
+/* Links turn gold when hovered */
+.nav-links a:hover { color: #f2b134; text-decoration: none; }
+/* The gold Create account button */
+.nav-links .nav-button {
+  background-color: #f2b134; color: #14172b;
+  padding: 8px 18px; border-radius: 4px; font-weight: bold;
+}
+/* A lighter gold when hovered */
+.nav-links .nav-button:hover { background-color: #ffc95c; color: #14172b; }
+/* The greeting shown when the user is logged in */
+.user-name { margin-left: 24px; color: #f2b134; font-weight: bold; }
+
+/* ===== Big banners and buttons ===== */
+
+/* The big banner with the gradient background */
+.hero {
+  background: linear-gradient(135deg, #3b1f4a, #14172b 60%, #7a2e2e);
+  padding: 90px 40px;
+  text-align: center;
+}
+/* The big heading */
+.hero h1 { font-size: 52px; margin-bottom: 16px; }
+/* The text under the heading, centred and not too wide */
+.hero p { font-size: 20px; max-width: 640px; margin: 0 auto 30px auto; color: #d8d3c6; }
+/* The search box and search button */
+.search-box { display: flex; justify-content: center; gap: 10px; }
+/* The search text box */
+.search-box input {
+  width: 340px; padding: 12px 16px; font-size: 16px;
+  border: none; border-radius: 4px;
+}
+
+/* The gold button used all over the site */
+.button {
+  display: inline-block; background-color: #f2b134; color: #14172b;
+  padding: 12px 26px; border: none; border-radius: 4px;
+  font-size: 16px; font-weight: bold; cursor: pointer;
+}
+/* A lighter gold when hovered */
+.button:hover { background-color: #ffc95c; text-decoration: none; }
+
+/* ===== Page sections ===== */
+
+/* A section of the page with space around it and a maximum width */
+.section { padding: 50px 40px; max-width: 1200px; margin: 0 auto; }
+/* Section headings */
+.section h2 { font-size: 32px; margin-bottom: 8px; }
+/* The grey text under a section heading */
+.section .subtitle { color: #a9a597; margin-bottom: 28px; }
+/* A darker full width stripe behind a section */
+.dark-band { background-color: #0d1020; }
+
+/* ===== Movie cards ===== */
+
+/* The grid that puts movie cards in rows */
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 24px;
+}
+/* One movie card. It gets a gold outline when you hover over it */
+.movie-card {
+  display: block; color: #f3efe6; background-color: #1e2240;
+  border-radius: 6px; overflow: hidden; cursor: pointer;
+}
+/* Gold outline when hovered */
+.movie-card:hover { outline: 2px solid #f2b134; text-decoration: none; }
+/* The poster box and the picture inside it */
+.poster { height: 280px; background-color: #2a2f55; overflow: hidden; }
+/* The picture fills the whole poster box */
+.poster img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* The text under a poster: title, year and rating */
+.movie-info { padding: 14px; }
+/* The movie title */
+.movie-info h3 { font-size: 18px; margin-bottom: 4px; }
+/* The year and the rating text */
+.movie-info p { font-size: 14px; color: #a9a597; }
+/* Gold text for ratings */
+.rating { color: #f2b134; font-weight: bold; }
+
+/* ===== Trending movie section ===== */
+
+/* The big trending movie with a poster on the left and text on the right */
+.featured { display: flex; gap: 40px; align-items: center; flex-wrap: wrap; }
+/* A bigger poster for the trending movie */
+.featured .poster { width: 260px; height: 380px; border-radius: 6px; }
+/* The text next to the poster */
+.featured-text { flex: 1; min-width: 280px; }
+/* The trending movie title */
+.featured-text h2 { font-size: 38px; }
+/* A small rounded label, used for genres and the movie length */
+.tag {
+  display: inline-block; border: 1px solid #f2b134; color: #f2b134;
+  padding: 2px 10px; border-radius: 20px; font-size: 13px; margin: 8px 8px 16px 0;
+}
+
+/* ===== Genre buttons ===== */
+
+/* The row of genre buttons */
+.genre-list { display: flex; flex-wrap: wrap; gap: 14px; }
+/* One genre button */
+.genre-list button {
+  background-color: #1e2240; color: #f3efe6; border: none;
+  padding: 12px 24px; border-radius: 30px; font-size: 16px; cursor: pointer;
+}
+/* The button turns gold when hovered */
+.genre-list button:hover { background-color: #f2b134; color: #14172b; }
+
+/* ===== Movie details page ===== */
+
+/* The Back to all movies link */
+.back-link { display: inline-block; margin-bottom: 24px; }
+/* The poster and the text next to each other */
+.details { display: flex; gap: 40px; flex-wrap: wrap; }
+/* A big poster on the movie page */
+.details .poster { width: 300px; height: 450px; border-radius: 6px; flex-shrink: 0; }
+/* The text next to the poster */
+.details-text { flex: 1; min-width: 280px; }
+/* The movie title */
+.details-text h1 { font-size: 40px; }
+/* The short sentence under the movie title */
+.tagline { color: #a9a597; font-style: italic; margin-bottom: 8px; }
+/* The facts block: release date, length, status and rating */
+.facts { margin: 18px 0; }
+/* Space between the facts */
+.facts p { margin-bottom: 4px; }
+/* The Cast heading and the grid of actor boxes */
+.cast-title { font-size: 28px; margin: 40px 0 16px 0; }
+/* The grid of actor boxes */
+.cast-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 14px; }
+/* One actor box */
+.cast-item { background-color: #1e2240; padding: 12px; border-radius: 6px; }
+/* The role the actor plays, in grey */
+.cast-item p { color: #a9a597; font-size: 14px; }
+
+/* ===== Login and register pages ===== */
+
+/* The full page background behind the form */
+.form-page {
+  min-height: calc(100vh - 140px);
+  display: flex; justify-content: center; align-items: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #3b1f4a, #14172b 60%, #7a2e2e);
+}
+/* The dark box that holds the form */
+.form-box {
+  background-color: #0d1020; width: 100%; max-width: 440px;
+  padding: 36px; border-radius: 8px; border-top: 4px solid #f2b134;
+}
+/* The form heading */
+.form-box h1 { font-size: 30px; margin-bottom: 6px; }
+/* The grey sentence under the form heading */
+.form-box .intro { color: #a9a597; margin-bottom: 24px; }
+/* Labels, text fields and drop-down lists inside the form */
+.form-box label { display: block; margin-bottom: 6px; font-size: 14px; }
+/* Text boxes and the drop-down list share the same style */
+.form-box input[type="text"],
+.form-box input[type="email"],
+.form-box input[type="password"],
+.form-box input[type="date"],
+.form-box select {
+  width: 100%; padding: 12px; margin-bottom: 18px;
+  border: 1px solid #3a3f66; border-radius: 4px;
+  background-color: #1e2240; color: #f3efe6; font-size: 16px;
+}
+/* A gold outline around the box you are typing in */
+.form-box input:focus, .form-box select:focus { outline: 2px solid #f2b134; }
+/* The form button is as wide as the form */
+.form-box .button { width: 100%; margin-top: 6px; }
+/* The checkbox with the terms of use text */
+.checkbox-row { margin-bottom: 18px; font-size: 14px; }
+/* Space between the checkbox and its text */
+.checkbox-row input { margin-right: 8px; }
+/* The small text under the form */
+.form-footer { text-align: center; margin-top: 20px; font-size: 15px; color: #a9a597; }
+
+/* The red and green message boxes above the form */
+.message { display: none; padding: 10px 12px; border-radius: 4px; margin-bottom: 18px; font-size: 14px; }
+/* Red message */
+.message.error { display: block; background-color: #4a1d28; color: #ffb3c0; }
+/* Green message */
+.message.success { display: block; background-color: #1d4a2e; color: #b9f0c9; }
+
+/* ===== Footer ===== */
+
+/* The bottom of the page */
+.footer { background-color: #0d1020; padding: 40px; margin-top: 40px; border-top: 3px solid #f2b134; }
+/* The columns in the footer */
+.footer-columns { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; max-width: 1200px; margin: 0 auto; }
+/* Footer headings */
+.footer h3 { margin-bottom: 10px; font-size: 18px; }
+/* Footer text and links */
+.footer p, .footer a { display: block; color: #a9a597; font-size: 14px; margin-bottom: 6px; }
+/* The copyright line */
+.copyright { text-align: center; margin-top: 30px; color: #7c7a70; font-size: 13px; }
+
+/* ===== Small screens ===== */
+
+/* Changes for phones and narrow windows */
+@media (max-width: 700px) {
+  /* The bar stacks its items on top of each other on small screens */
+  .navbar { flex-direction: column; gap: 12px; padding: 16px; }
+  /* Smaller heading on small screens */
+  .hero h1 { font-size: 36px; }
+  /* The search box and button stack on top of each other */
+  .search-box { flex-direction: column; align-items: center; }
+  /* The search box fills the width */
+  .search-box input { width: 100%; }
+}
+
+/* The small help text under the password box */
+.hint { font-size: 12px; color: #a9a597; margin: -10px 0 18px 0; }
+
+/* ===== Comments ===== */
+
+/* The comment box with avatar, text field and send button */
+.comment-form {
+  display: flex; align-items: center; gap: 12px;
+  background-color: #1e2240; padding: 14px; border-radius: 6px; margin-bottom: 28px;
+}
+/* The comment box for logged out users acts like a button (it goes to the login page) */
+.guest-form { cursor: pointer; }
+/* The comment text box */
+.comment-form input {
+  flex: 1; padding: 12px; font-size: 16px;
+  border: 1px solid #3a3f66; border-radius: 4px;
+  background-color: #14172b; color: #f3efe6;
+}
+/* A gold outline when typing */
+.comment-form input:focus { outline: 2px solid #f2b134; }
+/* The round gold send button */
+.comment-form button {
+  width: 44px; height: 44px; border: none; border-radius: 50%;
+  background-color: #f2b134; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+/* A lighter gold when hovered */
+.comment-form button:hover { background-color: #ffc95c; }
+/* The paper plane is dark */
+.comment-form svg { fill: #14172b; }
+
+/* The round avatar picture */
+.avatar {
+  width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+  background-color: #2a2f55; object-fit: cover;
+}
+/* The question mark circle for logged out users */
+.avatar-guest {
+  display: flex; align-items: center; justify-content: center;
+  color: #a9a597; font-weight: bold;
+}
+
+/* One comment in the list */
+.comment-item { display: flex; gap: 12px; margin-bottom: 20px; }
+/* The text part of a comment */
+.comment-body { flex: 1; }
+/* The date and time in grey */
+.comment-body small { color: #a9a597; }
+/* The comment text. Long words wrap instead of leaving the box */
+.comment-body p { margin-top: 2px; word-break: break-word; }
+/* The small Delete link under your own comment */
+.comment-delete {
+  background: none; border: none; color: #f2b134;
+  font-size: 13px; cursor: pointer; padding: 0; margin-top: 4px;
+}
+/* Underline when hovered */
+.comment-delete:hover { text-decoration: underline; }

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- The page is in English -->
+<html lang="en">
+<!-- Information about the page. This part is not shown on the page -->
+<head>
+  <!-- Use the UTF-8 text format so all letters show correctly -->
+  <meta charset="UTF-8">
+  <!-- Make the page fit phone screens -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The title shown in the browser tab -->
+  <title>Movie details - Reelhouse</title>
+  <!-- Load the style file (colours, sizes and layout) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<!-- Everything you can see on the page goes inside the body -->
+<body>
+
+  <!-- Navigation bar at the top -->
+  <div class="navbar">
+    <!-- The logo. Clicking it goes to the home page -->
+    <a class="logo" href="index.html">Reelhouse</a>
+    <!-- The links in the navigation bar -->
+    <div class="nav-links">
+      <!-- Link to the home page -->
+      <a href="index.html">Home</a>
+      <!-- Link to the Now showing section on the home page -->
+      <a href="index.html#now-showing">Now showing</a>
+      <!-- Link to the genre buttons on the home page -->
+      <a href="index.html#genres">Genres</a>
+      <!-- Empty spot. home.js fills it with Log in / Create account or the user's name and Log out -->
+      <span id="auth-links"></span>
+    </div>
+  </div>
+
+  <!-- Movie details. home.js reads the movie number from the address (movie.html?id=123) and fills the box -->
+  <div class="section">
+    <!-- Link back to the home page -->
+    <a class="back-link" href="index.html">&larr; Back to all movies</a>
+    <!-- The movie details are added here by home.js -->
+    <div id="movie-details">
+      <!-- Shown until the movie has loaded -->
+      <p>Loading...</p>
+    </div>
+  </div>
+
+  <!-- Comments. Hidden until the movie has loaded -->
+  <div class="section hidden" id="comments-section">
+    <!-- Heading. home.js adds the number of comments -->
+    <h2 id="comments-title">Comments</h2>
+    <p class="subtitle">Share what you think about this movie.</p>
+    <!-- The comment form is built here by home.js -->
+    <div id="comment-box-container"></div>
+    <!-- The list of comments is built here by home.js -->
+    <div id="comment-list"></div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <!-- Copyright line -->
+    <div class="copyright">&copy; 2026 Reelhouse. Movie data from TMDB.</div>
+  </div>
+
+  <!-- The script for this page. It must come last so the page is ready before it runs -->
+  <script src="home.js"></script>
+</body>
+</html>

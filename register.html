@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!-- The page is in English -->
+<html lang="en">
+<!-- Information about the page. This part is not shown on the page -->
+<head>
+  <!-- Use the UTF-8 text format so all letters show correctly -->
+  <meta charset="UTF-8">
+  <!-- Make the page fit phone screens -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The title shown in the browser tab -->
+  <title>Create account - Reelhouse</title>
+  <!-- Load the style file (colours, sizes and layout) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<!-- Everything you can see on the page goes inside the body -->
+<body>
+
+  <!-- Navigation bar at the top -->
+  <div class="navbar">
+    <!-- The logo. Clicking it goes to the home page -->
+    <a class="logo" href="index.html">Reelhouse</a>
+    <!-- The links in the navigation bar -->
+    <div class="nav-links">
+      <!-- Link to the home page -->
+      <a href="index.html">Home</a>
+      <!-- Link to the Now showing section on the home page -->
+      <a href="index.html#now-showing">Now showing</a>
+      <!-- Link to the genre buttons on the home page -->
+      <a href="index.html#genres">Genres</a>
+      <!-- Link to the login page -->
+      <a href="login.html">Log in</a>
+      <!-- Gold button that goes to the register page -->
+      <a class="nav-button" href="register.html">Create account</a>
+    </div>
+  </div>
+
+  <!-- Page area that centres the register box -->
+  <div class="form-page">
+    <!-- The register box -->
+    <div class="form-box">
+      <!-- Heading -->
+      <h1>Create your account</h1>
+      <!-- Short grey sentence under the heading -->
+      <p class="intro">Save movies to your own watchlist.</p>
+
+      <!-- Empty message box. register.js shows errors here -->
+      <p class="message" id="message"></p>
+
+      <!-- Register form. register.js checks it when it is sent -->
+      <form id="register-form">
+        <!-- Full name field -->
+        <label for="fullname">Full name</label>
+        <!-- Text box for the full name -->
+        <input type="text" id="fullname" name="fullname" placeholder="Your full name" required>
+
+        <!-- Username field -->
+        <label for="username">Username</label>
+        <!-- Text box for the username -->
+        <input type="text" id="username" name="username" placeholder="Pick a username" required>
+
+        <!-- Email field -->
+        <label for="email">Email address</label>
+        <!-- Email box. The browser checks that it looks like an email -->
+        <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+
+        <!-- Date of birth field (used to check the age) -->
+        <label for="birthday">Date of birth</label>
+        <!-- Date picker for the birthday -->
+        <input type="date" id="birthday" name="birthday" required>
+
+        <!-- Drop-down list for the favourite genre -->
+        <label for="genre">Favourite genre</label>
+        <select id="genre" name="genre">
+          <!-- The choices in the drop-down list -->
+          <option>Action</option>
+          <option>Comedy</option>
+          <option>Drama</option>
+          <option>Horror</option>
+          <option>Science fiction</option>
+          <option>Romance</option>
+          <option>Animation</option>
+        </select>
+
+        <!-- Password field with a hint about the rules -->
+        <label for="password">Password</label>
+        <!-- Password box. The letters are hidden -->
+        <input type="password" id="password" name="password" autocomplete="new-password" placeholder="At least 8 characters" required>
+        <p class="hint">Use 8 or more characters with an uppercase letter, a lowercase letter and a number.</p>
+
+        <!-- Second password field. It must match the first one -->
+        <label for="confirm">Confirm password</label>
+        <!-- Password box for the second time -->
+        <input type="password" id="confirm" name="confirm" autocomplete="new-password" placeholder="Type your password again" required>
+
+        <!-- Checkbox the user must tick to agree to the terms -->
+        <div class="checkbox-row">
+          <!-- Checkbox. The form cannot be sent until it is ticked -->
+          <input type="checkbox" id="terms" name="terms" required>
+          <label for="terms" style="display:inline;">I agree to the terms of use</label>
+        </div>
+
+        <!-- Button that sends the form -->
+        <button class="button" type="submit">Create account</button>
+      </form>
+
+      <!-- Link to the login page for users who already have an account -->
+      <p class="form-footer">Already have an account? <a href="login.html">Log in</a></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <!-- Copyright line -->
+    <div class="copyright">&copy; 2026 Reelhouse. Movie data from TMDB.</div>
+  </div>
+
+  <!-- The script for this page. It must come last so the page is ready before it runs -->
+  <script src="register.js"></script>
+</body>
+</html>
