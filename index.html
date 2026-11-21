@@ -10,7 +10,7 @@
   <!-- The title shown in the browser tab -->
   <title>Reelhouse - Movies to watch</title>
   <!-- Load the style file (colours, sizes and layout) -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <!-- Everything you can see on the page goes inside the body -->
 <body>
@@ -41,7 +41,7 @@
     <!-- Search text box and button -->
     <div class="search-box">
       <!-- Search box. home.js reads the text from here -->
-      <input type="text" id="search-input" placeholder="Search for a movie title">
+      <input type="search" aria-label="Search movie titles" id="search-input" placeholder="Search for a movie title">
       <!-- Search button. home.js starts the search when it is clicked -->
       <button class="button" id="search-button" type="button">Search</button>
     </div>
@@ -171,6 +171,9 @@
   </div>
 
   <!-- The script for this page. It must come last so the page is ready before it runs -->
-  <script src="home.js"></script>
+  <!-- Thứ tự: cấu hình TMDB -> fetch dùng chung -> các luồng hiện có. -->
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/home.js"></script>
 </body>
 </html>

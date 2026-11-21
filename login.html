@@ -10,7 +10,7 @@
   <!-- The title shown in the browser tab -->
   <title>Log in - Reelhouse</title>
   <!-- Load the style file (colours, sizes and layout) -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <!-- Everything you can see on the page goes inside the body -->
 <body>
@@ -44,10 +44,10 @@
       <p class="intro">Log in to see your watchlist.</p>
 
       <!-- Empty message box. login.js shows errors and success messages here -->
-      <p class="message" id="message"></p>
+      <p class="message" id="message" role="status" aria-live="polite"></p>
 
       <!-- Login form. login.js runs when it is sent -->
-      <form id="login-form">
+      <p class="demo-account-note">Demo account stored in this browser. Do not use a real password.</p><form id="login-form">
         <!-- Email field -->
         <label for="email">Email address</label>
         <!-- Email box. The browser checks that it looks like an email -->
@@ -74,6 +74,6 @@
   </div>
 
   <!-- The script for this page. It must come last so the page is ready before it runs -->
-  <script src="login.js"></script>
+  <script src="assets/js/login.js"></script>
 </body>
 </html>

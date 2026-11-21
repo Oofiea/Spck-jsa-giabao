@@ -82,7 +82,7 @@ h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; }
 /* ===== Page sections ===== */
 
 /* A section of the page with space around it and a maximum width */
-.section { padding: 50px 40px; max-width: 1200px; margin: 0 auto; }
+.section { width: 100%; padding: 50px 40px; max-width: 1280px; margin: 0 auto; }
 /* Section headings */
 .section h2 { font-size: 32px; margin-bottom: 8px; }
 /* The grey text under a section heading */
@@ -95,7 +95,7 @@ h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; }
 /* The grid that puts movie cards in rows */
 .movie-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 24px;
 }
 /* One movie card. It gets a gold outline when you hover over it */
@@ -105,6 +105,9 @@ h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; }
 }
 /* Gold outline when hovered */
 .movie-card:hover { outline: 2px solid #f2b134; text-decoration: none; }
+.movie-grid .movie-card { min-width: 0; }
+.movie-grid .poster { height: auto; aspect-ratio: 2 / 3; }
+.movie-info h3 { overflow-wrap: anywhere; }
 /* The poster box and the picture inside it */
 .poster { height: 280px; background-color: #2a2f55; overflow: hidden; }
 /* The picture fills the whole poster box */
@@ -305,3 +308,52 @@ h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; }
 }
 /* Underline when hovered */
 .comment-delete:hover { text-decoration: underline; }
+
+/* UI cơ bản dùng chung cho Reelhouse. */
+body { min-height: 100vh; display: flex; flex-direction: column; }
+main { flex: 1; }
+.navbar { flex-wrap: wrap; gap: 16px; }
+#auth-links { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.user-name { overflow-wrap: anywhere; }
+.demo-account-note { color: #c1bece; font-size: 14px; margin-bottom: 20px; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid #ffcf70; outline-offset: 4px; }
+@media(max-width:680px) {
+  .navbar { padding: 16px 20px; }
+  .hero { padding: 48px 20px; }
+  .hero h1 { font-size: 36px; }
+  .hero p { font-size: 17px; }
+  .section { padding: 35px 20px; }
+  .search-box { flex-wrap: wrap; }
+  .search-box input { max-width: 100%; }
+}
+/* Chỉnh nhẹ cho phiên bản TMDB: giữ nguyên các mục và chức năng đã có. */
+.nav-links { gap: 18px; }
+.nav-links a, .user-name { margin-left: 0; }
+.movie-info h3, .featured-text h2, .details-text h1 { overflow-wrap: anywhere; }
+.movie-card { border: 1px solid #343951; transition: transform .15s ease; }
+.movie-card:hover { transform: translateY(-3px); }
+.featured .poster, .details .poster { max-width: 100%; }
+.form-box { width: 100%; max-width: 440px; margin-inline: auto; }
+.message { overflow-wrap: anywhere; }
+.genre-list button, .button { min-height: 44px; }
+@media (max-width: 680px) {
+  .featured, .details { gap: 22px; }
+  .featured-text, .details-text { min-width: 0; flex-basis: 100%; }
+  .featured-text h2 { font-size: 30px; }
+  .details-text h1 { font-size: 32px; }
+  .footer-columns { flex-wrap: wrap; gap: 24px; }
+}
+@media (prefers-reduced-motion: reduce) { .movie-card { transition: none; } }
+
+/* Grid có số cột rõ ràng; section không co theo nội dung khi body dùng flex. */
+@media (max-width: 1024px) {
+  .movie-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .movie-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+}
+@media (max-width: 420px) {
+  .movie-info { padding: 10px; }
+  .movie-info h3 { font-size: 16px; }
+}

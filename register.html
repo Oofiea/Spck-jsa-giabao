@@ -10,7 +10,7 @@
   <!-- The title shown in the browser tab -->
   <title>Create account - Reelhouse</title>
   <!-- Load the style file (colours, sizes and layout) -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <!-- Everything you can see on the page goes inside the body -->
 <body>
@@ -44,10 +44,10 @@
       <p class="intro">Save movies to your own watchlist.</p>
 
       <!-- Empty message box. register.js shows errors here -->
-      <p class="message" id="message"></p>
+      <p class="message" id="message" role="status" aria-live="polite"></p>
 
       <!-- Register form. register.js checks it when it is sent -->
-      <form id="register-form">
+      <p class="demo-account-note">Demo account stored in this browser. Do not use a real password.</p><form id="register-form">
         <!-- Full name field -->
         <label for="fullname">Full name</label>
         <!-- Text box for the full name -->
@@ -115,6 +115,6 @@
   </div>
 
   <!-- The script for this page. It must come last so the page is ready before it runs -->
-  <script src="register.js"></script>
+  <script src="assets/js/register.js"></script>
 </body>
 </html>

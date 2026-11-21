@@ -1,0 +1,72 @@
+GHI CHÚ REVIEW VÀ BÀN GIAO — REELHOUSE / TMDB
+
+1. HƯỚNG SẢN PHẨM ĐÃ CHỐT
+
+Giữ TMDB làm nguồn chính, Ý tưởng khám phá phim + chi tiết + watchlist + bình luận phù hợp JSA;
+
+TMDB cần API key; đây là lựa chọn chủ động để giữ catalog/phân loại/metadata rộng của sản phẩm. API key có sẵn được giữ trong cấu hình, không ghi giá trị vào note.
+
+2. NHỮNG GÌ ĐƯỢC GIỮ LẠI
+
+- Now showing, trending, top rated, upcoming, search và thể loại theo mã TMDB đã có.
+- Chi tiết phim, cast, watchlist và bình luận.
+- Form đăng ký/đăng nhập, hash mật khẩu, phiên và key localStorage hiện có.
+- Nhận diện Reelhouse nền tối/vàng, cấu trúc HTML ở gốc và assets/css-js-images.
+
+3. FILE VỪA CHỈNH LẠI
+
+index.html
+- Khôi phục trang chủ TMDB với các khu vực đã có.
+- Dùng đường dẫn assets đã sắp xếp, nạp config -> api -> home.
+- Search có nhãn truy cập và type=search.
+
+movie.html
+- Giữ trang chi tiết TMDB đang dùng, bỏ cảnh báo bản tham khảo cũ.
+- Nạp chung config.js/api.js/home.js với trang chủ.
+
+assets/js/config.js
+- TMDB_CONFIG chứa API_URL, IMAGE_URL, LANGUAGE và key vốn có.
+
+assets/js/api.js
+- getData(path, extra) dùng chung, giữ kiểu gọi từ code cũ.
+- Dùng URLSearchParams và kiểm tra HTTP; thông báo riêng cho lỗi 401.
+
+assets/js/home.js
+- Khôi phục các hàm TMDB/watchlist/comments; chỉ tách phần cấu hình/fetch ra file riêng.
+- Không chuyển schema dữ liệu hoặc xóa chức năng đang có.
+
+assets/css/style.css
+- Giữ CSS đã làm, bổ sung chỉnh nhẹ nav/card, chữ dài, poster/khối chi tiết trên mobile, focus và nút.
+
+login.html, register.html
+- Giữ phần cải thiện form trước đó, đổi nav về now-showing/genres cho khớp trang chủ TMDB.
+- Logic JS đăng ký/đăng nhập của học sinh vẫn giữ.
+
+4. VIỆC CẦN LÀM TIẾP THEO THỨ TỰ
+
+[ ] Tự chạy bản TMDB trên máy, xác minh key và kết nối, không nhầm lỗi mạng với key sai.
+[ ] Kiểm tra đầy đủ các khu vực trang chủ, tìm kiếm, thể loại và chi tiết theo ID số.
+[ ] Bổ sung loading/rỗng/lỗi/thử lại cho từng khu vực, fallback ảnh và dữ liệu thiếu.
+[ ] Kiểm tra phim trending không có results, ID không tồn tại và tìm kiếm liên tiếp.
+[ ] Đồng nhất đọc storage an toàn, thử JSON hỏng/hết phiên/đăng xuất.
+[ ] Rà validate đã có bằng trường hợp thật, không viết lại toàn bộ chỉ để đổi cách tổ chức.
+[ ] Kiểm tra watchlist không trùng, theo user, giữ sau reload; bình luận trim/giới hạn/render an toàn.
+[ ] Khi luồng ổn định mới tách home.js thành movie/watchlist/comments/storage từng phần nhỏ.
+[ ] Kiểm tra desktop/mobile và tự thuyết trình luồng API -> UI -> lưu dữ liệu.
+
+5. GIỚI HẠN CẦN HIỂU
+
+- TMDB metadata không tự cung cấp vé/rạp/lịch chiếu địa phương; không quảng cáo tính năng chưa có.
+- Phim TMDB dùng ID số, poster_path và vote_average/10; thống nhất cấu trúc này trong code chính.
+- localStorage auth/comments chỉ là demo, không phải bảo vệ dữ liệu/quyền ở server.
+- Không có yêu cầu chuyển sang backend hoặc đổi nhà cung cấp lúc này; mục tiêu là hoàn thiện sản phẩm hiện có và hiểu code.
+- Lần gọi live TMDB từ môi trường review chưa hoàn tất do kết nối; chưa kết luận key sai. Cần học sinh xác minh trên máy chạy sản phẩm.
+
+6. KIỂM TRA SAU KHI KHÔI PHỤC
+
+- Cú pháp JS và đường dẫn cục bộ của các trang chính/ví dụ đều đạt.
+- DOM mô phỏng theo schema TMDB: các mục now showing/top/upcoming, trending, genres và link ID số render đúng.
+- Search giữ đúng từ khóa có ký tự đặc biệt qua hàm getData dùng chung.
+- Trang chi tiết yêu cầu credits và luồng lưu watchlist vào key cũ hoạt động với dữ liệu mô phỏng.
+- HTTP 401 có thông báo về cấu hình key; không gắn nhãn lỗi mạng là key sai.
+- Chưa xác minh dữ liệu TMDB live và chưa kiểm tra trực quan trên trình duyệt trong lần này; không coi mô phỏng là nghiệm thu toàn bộ sản phẩm.
